@@ -25,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        findViewById(R.id.add_product_button).setOnClickListener(
-                startActivity(Intent());
-        );
+        // button onClick
+        findViewById<MaterialButton>(R.id.add_product_button).setOnClickListener{startActivity(Intent(this, AddProductActivity::class.java));}
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
