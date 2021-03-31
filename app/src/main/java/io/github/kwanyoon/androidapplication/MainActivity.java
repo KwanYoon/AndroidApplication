@@ -18,11 +18,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBtnClick(View view) {
         // getting user input
-        EditText editTxtName = findViewById(R.id.editTxtName);
-        String nameInput = editTxtName.getText().toString();
+        EditText firstNameEdit = findViewById(R.id.firstNameInput);
+        String firstName = firstNameEdit.getText().toString();
+
+        EditText lastNameEdit = findViewById(R.id.lastNameInput);
+        String lastName = lastNameEdit.getText().toString();
+
+        EditText emailEdit = findViewById(R.id.emailInput);
+        String email = emailEdit.getText().toString();
 
         // changing text on button click
-        TextView txtHello = findViewById(R.id.textView);
-        txtHello.setText("Hello " + nameInput);
+        TextView txtFirstName = findViewById(R.id.firstNameText);
+        txtFirstName.setText("FIrst Name: " + firstName);
+
+        TextView txtLastName = findViewById(R.id.lastNameText);
+        txtLastName.setText("Last Name: " + lastName);
+
+        TextView txtEmail = findViewById(R.id.emailText);
+        txtEmail.setText("Email: " + email);
     }
 }
