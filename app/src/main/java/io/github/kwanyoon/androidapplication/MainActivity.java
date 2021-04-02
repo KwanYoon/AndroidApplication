@@ -1,6 +1,8 @@
 package io.github.kwanyoon.androidapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,32 +11,17 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView tasksRexyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
+        // hides topmost action bar
+        getSupportActionBar().hide();
 
-    public void onBtnClick(View view) {
-        // getting user input
-        EditText firstNameEdit = findViewById(R.id.firstNameInput);
-        String firstName = firstNameEdit.getText().toString();
-
-        EditText lastNameEdit = findViewById(R.id.lastNameInput);
-        String lastName = lastNameEdit.getText().toString();
-
-        EditText emailEdit = findViewById(R.id.emailInput);
-        String email = emailEdit.getText().toString();
-
-        // changing text on button click
-        TextView txtFirstName = findViewById(R.id.firstNameText);
-        txtFirstName.setText("FIrst Name: " + firstName);
-
-        TextView txtLastName = findViewById(R.id.lastNameText);
-        txtLastName.setText("Last Name: " + lastName);
-
-        TextView txtEmail = findViewById(R.id.emailText);
-        txtEmail.setText("Email: " + email);
+        tasksRexyclerView = findViewById(R.id.tasksRecyclerView);
+        tasksRexyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
