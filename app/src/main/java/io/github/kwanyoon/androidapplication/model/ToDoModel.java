@@ -1,5 +1,6 @@
 package io.github.kwanyoon.androidapplication.model;
 
+// model for the to-do-list recyclerview
 public class ToDoModel {
     private int id, status;
     private String task;
