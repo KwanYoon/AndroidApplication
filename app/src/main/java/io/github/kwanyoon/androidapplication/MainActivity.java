@@ -1,6 +1,7 @@
 package io.github.kwanyoon.androidapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         tasksRexyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);
+
+        // swipe functions
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
+        itemTouchHelper.attachToRecyclerView(tasksRexyclerView);
 
         taskList = db.getAllTasks();
         Collections.reverse(taskList);
