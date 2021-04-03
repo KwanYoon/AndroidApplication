@@ -18,6 +18,7 @@
         android:layout_alignParentRight="true"
         android:textSize="16sp"
         android:text="Save"
+        android:textColor="@android:color/darker_gray"
         android:backgroundTint="@android:color/holo_blue_light"
         android:textAllCaps="false" />
 
