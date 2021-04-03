@@ -24,7 +24,7 @@ import io.github.kwanyoon.androidapplication.utils.DatabaseHandler;
 public class MainActivity extends AppCompatActivity implements DialogCloseListener {
 
     // Recycler view
-    private RecyclerView tasksRexyclerView;
+    private RecyclerView tasksRecyclerView;
     // ToDoAdapter
     private ToDoAdapter tasksAdapter;
     private FloatingActionButton fab;
@@ -46,16 +46,16 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         taskList = new ArrayList<>();
 
         // finding and set it to linear layout
-        tasksRexyclerView = findViewById(R.id.tasksRecyclerView);
-        tasksRexyclerView.setLayoutManager(new LinearLayoutManager(this));
+        tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
+        tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         tasksAdapter = new ToDoAdapter(db, this);
-        tasksRexyclerView.setAdapter(tasksAdapter);
+        tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);
 
         // swipe functions
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
-        itemTouchHelper.attachToRecyclerView(tasksRexyclerView);
+        itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
 
         taskList = db.getAllTasks();
         Collections.reverse(taskList);
