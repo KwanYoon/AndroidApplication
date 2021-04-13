@@ -1,13 +1,19 @@
 package io.github.kwanyoon.androidapplication;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,6 +41,45 @@ public class SecretActivity extends AppCompatActivity implements DialogCloseList
 
         // hides topmost action bar
         getSupportActionBar().hide();
+
+        // database variables
+        db = new DatabaseHandler(this);
+        db.openDatabase();
+
+        secretList = new ArrayList<>();
+
+        // finding and set it to linear layout
+        secretRecyclerView = findViewById(R.id.secretsRecyclerView);
+        secretRecyclerView.setLayoutManager((new LinearLayoutManager(this)));
+        secretAdapter = new SecretAdapter(db, this);
+        secretRecyclerView.setAdapter(secretAdapter);
+
+        newSecretFab = findViewById(R.id.newSecretFab);
+
+        // swipe functions
+        //ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(secretAdapter));
+        //itemTouchHelper.attachToRecyclerView(secretRecyclerView);
+
+        secretList = db.getAllSecrets();
+        Collections.reverse(secretList);
+        secretAdapter.setSecrets(secretList);
+
+        newSecretFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddNewSecret.newInstance().show(getSupportFragmentManager(), AddNewSecret.TAG);
+            }
+        });
+
+        // main button
+        mainFab = findViewById(R.id.mainFab);
+        mainFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mainIntent = new Intent(view.getContext(), MainActivity.class);
+                startActivityForResult(mainIntent, 0);
+            }
+        });
     }
 
     @Override

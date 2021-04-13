@@ -15,15 +15,16 @@ import java.util.List;
 import io.github.kwanyoon.androidapplication.AddNewSecret;
 import io.github.kwanyoon.androidapplication.MainActivity;
 import io.github.kwanyoon.androidapplication.R;
+import io.github.kwanyoon.androidapplication.SecretActivity;
 import io.github.kwanyoon.androidapplication.model.SecretModel;
 import io.github.kwanyoon.androidapplication.utils.DatabaseHandler;
 
 public class SecretAdapter extends RecyclerView.Adapter<SecretAdapter.ViewHolder> {
     private List<SecretModel> secretList;
-    private MainActivity activity;
+    private SecretActivity activity;
     private DatabaseHandler db;
 
-    public SecretAdapter(DatabaseHandler db, MainActivity activity) {
+    public SecretAdapter(DatabaseHandler db, SecretActivity activity) {
         this.db = db;
         this.activity = activity;
     }
@@ -42,7 +43,7 @@ public class SecretAdapter extends RecyclerView.Adapter<SecretAdapter.ViewHolder
 
         SecretModel item = secretList.get(position);
         holder.secret.setText(item.getPlaceholder());
-        holder.secret.setText(item.getSecret());
+        //holder.secret.setText(item.getSecret());
         holder.secret.setChecked(toBoolean(item.getSecretStatus()));
     }
 
