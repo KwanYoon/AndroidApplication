@@ -34,4 +34,14 @@
         android:backgroundTint="@android:color/holo_blue_light"
         android:src="@drawable/add"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/secretFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="32dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:src="@drawable/add"/>
+
 </RelativeLayout>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
     // ToDoAdapter
     private ToDoAdapter tasksAdapter;
     private FloatingActionButton fab;
+    private FloatingActionButton secretFab;
 
     private List<ToDoModel> taskList;
     private DatabaseHandler db;
@@ -65,6 +67,16 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
             @Override
             public void onClick(View v) {
                 AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
+            }
+        });
+
+        // secret button
+        secretFab = findViewById(R.id.secretFab);
+        secretFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent secretIntent = new Intent(view.getContext(), SecretActivity.class);
+                startActivityForResult(secretIntent, 0);
             }
         });
     }

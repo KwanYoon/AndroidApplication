@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashActicity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class SplashActicity extends AppCompatActivity {
         // hides topmost action bar
         getSupportActionBar().hide();
         // going from splash to main
-        final Intent i = new Intent(SplashActicity.this, MainActivity.class);
+        final Intent i = new Intent(SplashActivity.this, MainActivity.class);
         // waiting 1000 ms to go from splash to main
         new Handler().postDelayed(new Runnable() {
             @Override
