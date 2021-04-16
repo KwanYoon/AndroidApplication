@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,8 +44,17 @@ public class SecretAdapter extends RecyclerView.Adapter<SecretAdapter.ViewHolder
 
         SecretModel item = secretList.get(position);
         holder.secret.setText(item.getPlaceholder());
-        //holder.secret.setText(item.getSecret());
         holder.secret.setChecked(toBoolean(item.getSecretStatus()));
+        holder.secret.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    holder.secret.setText(item.getSecret());
+                } else {
+                    holder.secret.setText(item.getPlaceholder());
+                }
+            }
+        });
     }
 
     @Override
@@ -59,7 +69,7 @@ public class SecretAdapter extends RecyclerView.Adapter<SecretAdapter.ViewHolder
 
     public void deleteItem(int position) {
         SecretModel item = secretList.get(position);
-        db.deleteTask(item.getSecretId());
+        db.deleteSecret(item.getSecretId());
         secretList.remove(position);
         notifyItemRemoved(position);
     }

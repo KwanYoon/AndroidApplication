@@ -41,7 +41,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_margin="32dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:src="@drawable/add"/>
+        android:backgroundTint="@android:color/white" />
 
 </RelativeLayout>

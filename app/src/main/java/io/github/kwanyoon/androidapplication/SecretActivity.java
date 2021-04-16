@@ -57,8 +57,8 @@ public class SecretActivity extends AppCompatActivity implements DialogCloseList
         newSecretFab = findViewById(R.id.newSecretFab);
 
         // swipe functions
-        //ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(secretAdapter));
-        //itemTouchHelper.attachToRecyclerView(secretRecyclerView);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SecretRecycler(secretAdapter));
+        itemTouchHelper.attachToRecyclerView(secretRecyclerView);
 
         secretList = db.getAllSecrets();
         Collections.reverse(secretList);

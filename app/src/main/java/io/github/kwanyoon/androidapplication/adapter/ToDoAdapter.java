@@ -1,6 +1,7 @@
 package io.github.kwanyoon.androidapplication.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.CompoundButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.xml.sax.DTDHandler;
 
 import java.util.List;
@@ -17,6 +20,7 @@ import java.util.List;
 import io.github.kwanyoon.androidapplication.AddNewTask;
 import io.github.kwanyoon.androidapplication.MainActivity;
 import io.github.kwanyoon.androidapplication.R;
+import io.github.kwanyoon.androidapplication.SecretActivity;
 import io.github.kwanyoon.androidapplication.model.ToDoModel;
 import io.github.kwanyoon.androidapplication.utils.DatabaseHandler;
 
