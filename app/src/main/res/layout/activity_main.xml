@@ -41,6 +41,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_margin="32dp"
-        android:backgroundTint="@android:color/white" />
+        android:color="#66FF0000"
+        android:alpha="0"  />
 
 </RelativeLayout>
