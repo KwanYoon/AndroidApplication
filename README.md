@@ -7,7 +7,7 @@
 
 ![android-app-todo](https://user-images.githubusercontent.com/47330978/117239584-12e10500-adfd-11eb-9c00-273700f14347.png)
 
-This looks like a normal to-do-list application. But this is a disguise! There is an invisible button on the bottom left corner of the application that lets the user into their own secret password saver.
+This looks like a normal to-do-list application. The user can actually use this page as their to-do-list as it supports creating, reading, updating, and deleting of tasks. But this is a disguise! There is an invisible button on the bottom left corner of the application that lets the user into their own secret password saver.
 
 ***Secret Vault***:
 
